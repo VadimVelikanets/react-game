@@ -113,11 +113,20 @@ class App extends React.Component{
     if(newFields[fieldId].value  === null){
          // const newValue = this.state.count % 2 == 0 ? 'X' : '0';
           let newValue
-          if(this.state.isYourCross){
+          if(this.state.isPCPlayer && this.state.isYourCross){
+            newValue = 'X';
+          } else if(this.state.isPCPlayer && !this.state.isYourCross){
+            newValue =  '0' ;
+          } else if(!this.state.isPCPlayer && this.state.isYourCross){
             newValue = this.state.count % 2 == 0 ? 'X' : '0';
-          } else{
+          }else if(!this.state.isPCPlayer && !this.state.isYourCross){
             newValue = this.state.count % 2 == 0 ? '0' : 'X';
           }
+          // if(!this.state.isPCPlayer && this.state.isYourCross){
+          //   newValue = this.state.count % 2 == 0 ? 'X' : '0';
+          // } else{
+          //   newValue = this.state.count % 2 == 0 ? '0' : 'X';
+          // }
 
           if(newValue == 'X'){
             this.setState({xLength: this.state.xLength +1})
