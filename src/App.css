@@ -195,3 +195,9 @@ header ul li .active-link{
 .settings-item .btn-active{
   opacity: 1;
 }
+
+@media(max-width: 460px) {
+  .score{
+    margin: 0;
+  }
+}
