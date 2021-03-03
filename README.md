@@ -1,4 +1,5 @@
-Demo https://vadimvelikanets.github.io/](https://vadimvelikanets.github.io/) 
+# React Game - Tic Tac Toe
+Demo [https://vadimvelikanets.github.io/](https://vadimvelikanets.github.io/) 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
