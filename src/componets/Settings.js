@@ -4,6 +4,14 @@ const Settings = (props) =>{
         <div className="setting">
             <h1>Settings</h1>
             <div className="settings-item">
+                <span>Second player PC</span>
+                <div>
+                    <button onClick={value => props.changePlayer(true)} className={`${props.isPCPlayer ? "btn-active" : ""}`}>On</button>
+                    <button onClick={ value => props.changePlayer(false)} className={`${!props.isPCPlayer ? "btn-active" : ""}`}>Off</button>
+                </div>
+
+            </div>
+            <div className="settings-item">
                 <span>Sound</span>
                 <div>
                     <button onClick={value => props.soundOff(true)} className={`${props.soundValue ? "btn-active" : ""}`}>On</button>

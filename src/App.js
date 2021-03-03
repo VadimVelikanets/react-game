@@ -58,7 +58,8 @@ const initialState = {
   winner: false,
   sound: true,
   isYourCross: true,
-  isShowScore: true
+  isShowScore: true,
+  isPCPlayer: true
 
 };
 
@@ -113,20 +114,26 @@ class App extends React.Component{
          // const newValue = this.state.count % 2 == 0 ? 'X' : '0';
           let newValue
           if(this.state.isYourCross){
-            newValue = 'X';
-            this.setState({xLength: this.state.xLength +1})
+            newValue = this.state.count % 2 == 0 ? 'X' : '0';
           } else{
-            newValue = '0';
-            this.setState({oLength: this.state.oLength +1})
+            newValue = this.state.count % 2 == 0 ? '0' : 'X';
           }
 
+          if(newValue == 'X'){
+            this.setState({xLength: this.state.xLength +1})
+          } else{
+            this.setState({oLength: this.state.oLength +1})
+          }
           newFields[fieldId].value = newValue;
           this.setState({fields: newFields})
         this.checkWinner()
         if(this.state.sound){
           this.audio.play()
         }
-        setTimeout(this.enemyStep, 500)
+        if(this.state.isPCPlayer){
+          setTimeout(this.enemyStep, 500)
+        }
+
     }
 
   }
@@ -242,9 +249,11 @@ class App extends React.Component{
   }
   showScore = (value) =>{
     this.setState({isShowScore: value})
-    console.log(this.state)
-  }
 
+  }
+  changePlayer = (value) =>{
+    this.setState({isPCPlayer: value})
+  }
   render(){
 
     const listItems = this.state.fields.map((field) =>
@@ -287,6 +296,8 @@ class App extends React.Component{
                    CrossZeroValue={this.state.isYourCross}
                    showScore = {this.showScore}
                    isShowScore={this.state.isShowScore}
+                   isPCPlayer={this.state.isPCPlayer}
+                   changePlayer={this.changePlayer}
                />
               </Route>
             </Switch>
