@@ -267,16 +267,14 @@ class App extends React.Component{
                     {this.state.isShowScore &&
                         <div className="score">
                           <h2>Score</h2>
-                          <div className="score__item"><span>X</span> - {this.state.xLength}</div>
-                          <div className="score__item"><span>0</span> - {this.state.oLength}</div>
+                          <div className="score__item">Player <span>X</span> - {this.state.xLength}</div>
+                          <div className="score__item">Player <span>0</span> - {this.state.oLength}</div>
                         </div>
                     }
                   </div>
                   <span className="winner-txt">{this.state.winMessage}</span> <br/>
-                  <div>
+                  <div className="btns">
                     <button className="btn-restart" onClick={() => this.restartGame()} >Restart</button>
-                  </div>
-                  <div>
                     <button className="btn-autoplay" onClick={() => this.autoplayGame()} >Autoplay</button>
                   </div>
                 </div>
